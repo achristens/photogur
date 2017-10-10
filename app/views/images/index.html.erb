@@ -1,1 +1,6 @@
 <h1>Images of Dojes</h1>
+<% @image.each do |image| %>
+  <h3><%= image.dog_name%></h3>
+  <p><%= image.title %></p>
+  <img src="<%= image.url %>" alt="<%= image.title %>">
+<% end %>
