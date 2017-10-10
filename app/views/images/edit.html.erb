@@ -1,0 +1,19 @@
+<h1>Edit Your Doggo</h1>
+
+<%= form_for(@image, url: "/images/#{@image.id}") do |f| %>
+  <p>
+    <%= f.label :dog_name %><br>
+    <%= f.text_field :dog_name %>
+  </p>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,4 +1,4 @@
 <h1><%= @image.dog_name %></h1>
 <h2><%= @image.title %></h2>
+<p><%= link_to("Back to Doggos", "/images") %> | <%= link_to("Edit your Pupper", "/images/#{@image.id}/edit")%></p>
 <img src="<%= @image.url %>">
-<%= link_to("Back to Doggos", "/images") %>
