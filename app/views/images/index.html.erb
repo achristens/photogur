@@ -1,6 +1,8 @@
 <h1>Images of Dojes</h1>
+<%= link_to("Add a Doggo", "/images/new") %>
+
 <% @image.each do |image| %>
   <h3><%= image.dog_name%></h3>
   <p><%= image.title %></p>
-  <img src="<%= image.url %>" alt="<%= image.title %>">
+  <%= link_to(image_tag(image.url), "/images/#{image.id}") %>
 <% end %>
