@@ -4,4 +4,8 @@ class ImagesController < ApplicationController
     @image = Image.all
   end
 
+  def show
+    @image = Image.find(params[:id])
+
+  end
 end

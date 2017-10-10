@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get 'images' => 'images#index'
 
+  get 'images/:id' => 'images#show'
+
 end
