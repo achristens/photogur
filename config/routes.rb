@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'images#index'
 
-  get 'images'     => 'images#index'
+  get 'images'     => 'images#index', as: 'home'
 
   get 'images/:id/edit' => 'images#edit'
   patch 'images/:id' => 'images#update'
