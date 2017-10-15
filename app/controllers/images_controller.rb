@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
-
   def index
+    @most_recent_pictures = Image.most_recent_five
+    @created_before = Image.created_before(Time.now.months_ago(1))
     @image = Image.all
   end
 
