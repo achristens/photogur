@@ -14,6 +14,19 @@
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </p>
+
+  <% if @image.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %>
+      prohibited this article from being saved:</h2>
+      <ul>
+        <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <p>
     <%= f.submit "Save" %>
   </p>
