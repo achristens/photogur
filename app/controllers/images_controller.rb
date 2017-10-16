@@ -3,6 +3,8 @@ class ImagesController < ApplicationController
     @most_recent_pictures = Image.most_recent_five
     @created_before = Image.created_before(Time.now.months_ago(1))
     @image = Image.all
+    # Alternative way to use pictures_created_in_year method:
+    @pictures_from_2017 = Image.pictures_created_in_year(2017)
   end
 
   def show

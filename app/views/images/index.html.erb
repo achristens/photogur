@@ -30,3 +30,11 @@
   <p><%= image.title %></p>
   <%= link_to(image_tag(image.url), "/images/#{image.id}") %>
 <% end %>
+
+<!-- Alternative way to use pictures_created_in_year method  -->
+<h3>2017 Pictures</h3>
+<% @pictures_from_2017.each do |image| %>
+  <h3><%= image.dog_name%></h3>
+  <p><%= image.title %></p>
+  <%= link_to(image_tag(image.url), "/images/#{image.id}") %>
+<% end %>

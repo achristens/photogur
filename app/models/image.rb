@@ -1,5 +1,7 @@
 class Image < ApplicationRecord
 
+  validates :dog_name, presence: true
+
   def self.newest_first
     Image.order("created_at DESC")
   end
