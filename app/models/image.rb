@@ -2,7 +2,7 @@ class Image < ApplicationRecord
 
 
   validates :dog_name, :url, presence: true
-  validates :title, length: { in: 3..50 }
+  validates :title, length: { in: 3..50, :message => "Avast! Have ya too much grog? This must be 3-50 characters to be Doubloons!" }
   validates :url, uniqueness: true
   validates :url, format: { :with => URI::regexp(%w(http https)), :message => "Must begin with http" }
 
