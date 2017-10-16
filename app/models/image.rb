@@ -1,8 +1,10 @@
 class Image < ApplicationRecord
 
+
   validates :dog_name, :url, presence: true
   validates :title, length: { in: 3..50 }
   validates :url, uniqueness: true
+  validates :url, format: { :with => URI::regexp(%w(http https)), :message => "Must begin with http" }
 
   def self.newest_first
     Image.order("created_at DESC")
