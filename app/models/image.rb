@@ -1,7 +1,8 @@
 class Image < ApplicationRecord
 
-  validates :dog_name, presence: true
+  validates :dog_name, :url, presence: true
   validates :title, length: { in: 3..50 }
+  validates :url, uniqueness: true
 
   def self.newest_first
     Image.order("created_at DESC")
