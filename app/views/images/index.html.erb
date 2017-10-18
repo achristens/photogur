@@ -1,19 +1,19 @@
-<h1>Images of Dojes</h1>
-<%= link_to("Add a Doggo", "/images/new") %>
-
 <h1>Most Recent Pictures</h1>
 
-<ul>
+<div class="flex-container">
   <% @most_recent_pictures.each do |image| %>
-    <li><%= image.title %></li>
-  <% end %>
-</ul>
+    <div class="inner-flex-div">
+      <%= link_to(image_tag(image.url), "/images/#{image.id}") %>
+      <div class="image-text">
+        <h3><%= image.dog_name%></h3>
+        <p><%= image.title %></p>
+        <p>Comments: <%= image.comments.count %> </p>
+      </div>
+    </div>
+    <% end %>
+</div>
 
-<% @image.each do |image| %>
-  <h3><%= image.dog_name%></h3>
-  <p><%= image.title %></p>
-  <%= link_to(image_tag(image.url), "/images/#{image.id}") %>
-<% end %>
+
 
 <h1>Older Pictures</h1>
 

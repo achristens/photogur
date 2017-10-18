@@ -1,5 +1,13 @@
 class Image < ApplicationRecord
-
+  has_many :comments
+  # This is saying there is an image_id column in the comment table. You've gained some new methods with this association (see more on the docs!):
+  # images.comments
+  # images.comments.count
+  has_and_belongs_to_many :tags
+    # This is a pictures_tags join table
+    # some_image.tags
+    # some_image.tags.count
+    # etc
 
   validates :dog_name, :url, presence: true
   validates :title, length: { in: 3..50, :message => "Avast! Have ya too much grog? This must be 3-50 characters to be Doubloons!" }

@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+  <h1>Images of Dojes</h1>
+  <nav class="main-nav">
+    <ul>
+      <li><%= link_to("Home", root_url) %></li>
+      <li><%= link_to("Add Image", "/images/new") %></li>
+    </ul>
+  </nav>
+</header>
 <%= yield %>
 
 </body>
