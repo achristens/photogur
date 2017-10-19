@@ -7,24 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-  <h1>Images of Dojes</h1>
-  <nav class="main-nav">
-    <ul>
-      <li><%= link_to("Home", root_url) %></li>
-      <li><%= link_to("Add Image", "/images/new") %></li>
-      <li><%= link_to("Sign Up", new_users_url) %></li>
-    </ul>
-  </nav>
-</header>
-<% if flash[:notice] %>
-  <p class="notice"><%= flash[:notice] %></p>
-<% end %>
-<% if flash[:alert] %>
-  <p class="alert"><%= flash[:alert] %></p>
-<% end %>
+  <header>
+    <h1>Images of Dojes</h1>
+    <nav class="main-nav">
+      <ul>
+        <li><%= link_to("Home", root_url) %></li>
+        <li><%= link_to("Add Image", "/images/new") %></li>
+        <% if session[:user_id] %>
+          <li><%= link_to "Log out", sessions_path("current"), :method => :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", new_sessions_path %></li>
+          <li><%= link_to("Sign Up", new_users_url) %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+  <main>
 
-<%= yield %>
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:alert] %>
+    <p class="alert"><%= flash[:alert] %></p>
+  <% end %>
 
+  <p class="userinfo">
+    <% if current_user %>
+      Signed in as <%= current_user.email %>
+    <% end %>
+  </p>
+  <%= yield %>
+  </main>
 </body>
 </html>
