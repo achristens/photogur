@@ -23,6 +23,7 @@ class ImagesController < ApplicationController
     @image.title = params[:image][:title]
     @image.dog_name = params[:image][:dog_name]
     @image.url = params[:image][:url]
+    @image.user_id = current_user.id
 
     if @image.save
       redirect_to root_url
