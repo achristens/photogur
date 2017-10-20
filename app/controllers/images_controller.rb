@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   before_action :ensure_logged_in, except: [:show, :index]
   before_action :load_image, only: [:show, :edit, :update, :destroy]
-
+  before_action :ensure_user_owns_image, only: [:edit, :update, :destroy]
   def index
     @most_recent_pictures = Image.most_recent_five
     @created_before = Image.created_before(Time.now.months_ago(1))
