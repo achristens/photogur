@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_user_owns_image
+    
+  end
+
   helper_method :current_user
 
 end

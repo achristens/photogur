@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :ensure_logged_in, except: [:show, :index]
+  before_action :load_image, only: [:show, :edit, :update, :destroy]
 
   def index
     @most_recent_pictures = Image.most_recent_five
@@ -10,7 +11,6 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.find(params[:id])
   end
 
   def new
@@ -33,12 +33,9 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    @image = Image.find(params[:id])
   end
 
   def update
-    @image = Image.find(params[:id])
-
     @image.title = params[:image][:title]
     @image.dog_name = params[:image][:dog_name]
     @image.url = params[:image][:url]
@@ -51,8 +48,11 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
     @image.destroy
     redirect_to home_url
+  end
+
+  def load_image
+    @image = Image.find(params[:id])
   end
 end
