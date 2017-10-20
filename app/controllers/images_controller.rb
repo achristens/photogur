@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :ensure_logged_in, except: [:show, :index]
+
   def index
     @most_recent_pictures = Image.most_recent_five
     @created_before = Image.created_before(Time.now.months_ago(1))
@@ -52,5 +54,4 @@ class ImagesController < ApplicationController
     @image.destroy
     redirect_to home_url
   end
-
 end
