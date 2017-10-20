@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
   has_many :comments
+  belongs_to :user
   # This is saying there is an image_id column in the comment table. You've gained some new methods with this association (see more on the docs!):
   # images.comments
   # images.comments.count
